@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let data = [];
   try {
-    const res = await fetch("/media/ppk/ppk-data.json");
+    const res = await fetch('./ppk-data.json');
     data = await res.json();
   } catch (err) {
     console.error("Gagal memuat data:", err);
@@ -65,3 +65,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   render(data);
 });
+
