@@ -6,8 +6,8 @@
     "alamat": "Jl. Surya Kencana No. 2, Bandung",
     "telepon": "022 - 2552200",
     "jam_operasional": "Senin–Jumat 07.00–13.00; Sabtu 07.00–12.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
+    "fasilitas": ["Laboratorium, Tindakan ringan"]
+  }
   {
     "jenis": "PPK I (Klinik)",
     "wilayah": "Bandung Utara",
