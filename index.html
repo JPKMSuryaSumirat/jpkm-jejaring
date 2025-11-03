@@ -4,34 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Klinik & Rumah Sakit Jejaring - JPKM Surya Sumirat</title>
-  <link rel="stylesheet" href="ppk-style.css">
-</head>
-<body>
-  <h1 style="text-align:center;color:#005b96;margin-top:1rem;">
-    Daftar Klinik & Rumah Sakit Jejaring
-  </h1>
 
-  <div id="ppk-app">
-    <div class="ppk-controls">
-      <input type="text" id="search" placeholder="Cari nama, alamat, atau telepon...">
-      <select id="filterWilayah">
-        <option value="">Semua Wilayah</option>
-        <option value="Bandung Utara">Bandung Utara</option>
-        <option value="Bandung Selatan">Bandung Selatan</option>
-        <option value="Bandung Tengah">Bandung Tengah</option>
-        <option value="Cimahi">Cimahi</option>
-        <option value="Karawang">Karawang</option>
-        <option value="Jakarta">Jakarta</option>
-        <option value="Bali">Bali</option>
-      </select>
-      <select id="filterJenis">
-        <option value="">Semua Jenis</option>
-        <option value="PPK I">PPK I (Klinik)</option>
-        <option value="PPK II">PPK II (Rumah Sakit)</option>
-      </select>
+  <!-- Metadata SEO -->
+  <meta name="description" content="Daftar Klinik & Rumah Sakit Jejaring Bapel JPKM Surya Sumirat - Update November 2025">
+  <meta name="author" content="Bapel JPKM Surya Sumirat">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="ppk-style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f8fafc;
+    }
+    header {
+      background: #005b96;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    header p {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: #dbeafe;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      background: #f1f5f9;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Daftar Klinik & Rumah Sakit Jejaring</h1>
+    <p>Bapel JPKM Surya Sumirat – Pembaruan November 2025</p>
+  </header>
+
+  <main style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+    <div id="ppk-app">
+      <div class="ppk-controls">
+        <input type="text" id="search" placeholder="Cari nama, alamat, atau telepon...">
+        <select id="filterWilayah">
+          <option value="">Semua Wilayah</option>
+          <option value="Bandung Utara">Bandung Utara</option>
+          <option value="Bandung Selatan">Bandung Selatan</option>
+          <option value="Bandung Tengah">Bandung Tengah</option>
+          <option value="Cimahi">Cimahi</option>
+          <option value="Karawang">Karawang</option>
+          <option value="Jakarta">Jakarta</option>
+          <option value="Bali">Bali</option>
+        </select>
+        <select id="filterJenis">
+          <option value="">Semua Jenis</option>
+          <option value="PPK I">PPK I (Klinik)</option>
+          <option value="PPK II">PPK II (Rumah Sakit)</option>
+        </select>
+      </div>
+
+      <div id="ppk-list" class="ppk-grid"></div>
     </div>
-    <div id="ppk-list" class="ppk-grid"></div>
-  </div>
+  </main>
+
+  <footer>
+    © 2025 Bapel JPKM Surya Sumirat | Semua Hak Dilindungi
+  </footer>
 
   <script src="ppk-script.js"></script>
 </body>
