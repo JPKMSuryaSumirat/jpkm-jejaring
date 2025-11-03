@@ -1,756 +1,90 @@
 [
   {
-    "jenis": "PPK I (Klinik)",
+    "jenis": "PPK I",
     "wilayah": "Bandung Utara",
     "nama": "Klinik Pratama Surya Sumirat",
     "alamat": "Jl. Surya Kencana No. 2, Bandung",
-    "telepon": "022 - 2552200",
-    "jam_operasional": "Senin–Jumat 07.00–13.00; Sabtu 07.00–12.00",
-    "fasilitas": ["Laboratorium, Tindakan ringan"]
-  }
+    "telepon": "022-2552200",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "07.00 - 13.00, 07.00 - 12.00",
+    "fasilitas": ["Laboratorium", "Tindakan ringan"]
+  },
   {
-    "jenis": "PPK I (Klinik)",
+    "jenis": "PPK I",
     "wilayah": "Bandung Utara",
     "nama": "Klinik Pratama Sari Asih",
     "alamat": "Jl. Sekeloa No. 29, Gg. Loa II, Bandung",
-    "telepon": "022 - 2503868",
-    "jam_operasional": "Senin–Jumat 07.00–13.00; Sabtu 07.00–12.00",
-    "fasilitas": "Tindakan ringan"
+    "telepon": "022-2503868",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "07.00 - 13.00, 07.00 - 12.00",
+    "fasilitas": ["Tindakan ringan"]
   },
   {
-    "jenis": "PPK I (Klinik)",
+    "jenis": "PPK I",
     "wilayah": "Bandung Utara",
     "nama": "Klinik Pratama Unpar",
     "alamat": "Jl. Menjangan No. 14, Ciumbuleuit, Bandung",
-    "telepon": "022 - 82602386",
-    "jam_operasional": "Senin–Jumat 07.00–13.00; Sabtu 07.00–12.00",
-    "fasilitas": "Tindakan ringan"
+    "telepon": "022-82602386",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "07.00 - 13.00, 07.00 - 12.00",
+    "fasilitas": ["Tindakan ringan"]
   },
   {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Utara",
-    "nama": "Klinik Pratama An-Nur",
-    "alamat": "Jl. Setiabudi No.63, Bandung",
-    "telepon": "022 - 2031922, 2042213",
-    "jam_operasional": "Senin–Sabtu 08.00–21.00; Minggu 08.00–14.00",
-    "fasilitas": "Laboratorium sederhana"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Utara",
-    "nama": "Klinik Pratama St. Laurentius",
-    "alamat": "Jl. Sukajadi Atas 369/181, Bandung",
-    "telepon": "022 - 2030444",
-    "jam_operasional": "Senin–Jumat 08.00–15.00; Sabtu 08.00–12.00",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK I (Klinik)",
+    "jenis": "PPK I",
     "wilayah": "Bandung Utara",
     "nama": "Klinik Pratama Lumina Medical Center",
     "alamat": "Jl. Grand Hotel No. 31, Lembang",
     "telepon": "",
-    "jam_operasional": "24 Jam",
-    "fasilitas": "IGD, Tindakan ringan, Laboratorium, Rawat inap"
+    "hari": "Setiap Hari",
+    "jam": "24 Jam",
+    "fasilitas": ["IGD", "Laboratorium", "Rawat inap", "Tindakan ringan"]
   },
   {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Tengah",
-    "nama": "Klinik Pratama Kamuning",
-    "alamat": "Jl. Kamuning No.25, Bandung",
-    "telepon": "022 - 7208052",
-    "jam_operasional": "Senin–Jumat 08.00–12.00; Senin–Jumat 14.00–17.00",
-    "fasilitas": "Tindakan ringan"
+    "jenis": "PPK II",
+    "wilayah": "Bandung",
+    "nama": "RS Santo Borromeus",
+    "alamat": "Jl. Ir. H. Djuanda No. 100, Bandung",
+    "telepon": "022-2552000",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
   },
   {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Anugerah",
-    "alamat": "Jl. Lengkong Besar No.117 Bandung",
-    "telepon": "022 - 4206005",
-    "jam_operasional": "Senin–Sabtu 08.00–14.00; Senin–Sabtu 16.00–20.00",
-    "fasilitas": ""
+    "jenis": "PPK II",
+    "wilayah": "Bandung",
+    "nama": "RS Immanuel",
+    "alamat": "Jl. Kopo No. 161, Bandung",
+    "telepon": "022-5201656",
+    "fasilitas": ["Rujukan", "Rawat Inap", "Laboratorium"]
   },
   {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Waluya Jati",
-    "alamat": "Jl. Asmi No. 7 Bandung",
-    "telepon": "022 - 5230788",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Utama Monalisa",
-    "alamat": "Jl. Moch.Ramdan No.32 Bandung",
-    "telepon": "081573600002",
-    "jam_operasional": "Senin–Sabtu 07.00–21.00 (Dokter spesialis)",
-    "fasilitas": "Kerjasama khusus Dokter spesialis sesuai jadwal & Laboratorium (Tidak ada dokter umum)"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Silih Asih",
-    "alamat": "Jl. Suryalaya No.8 Buah Batu, Bandung",
-    "telepon": "022 - 7300005",
-    "jam_operasional": "Senin–Sabtu 09.00–12.00; Senin–Sabtu 16.00–19.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Gandarusa",
-    "alamat": "Jl. Dian Permai No. 6 A, Bandung",
-    "telepon": "022 - 6016801",
-    "jam_operasional": "Senin–Jumat 08.00–17.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Monalisa",
-    "alamat": "Jl. Kopo No. 206, Bandung",
-    "telepon": "08157180000",
-    "jam_operasional": "Senin–Sabtu 07.00–21.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Afiati Kopo",
-    "alamat": "Jl. Kopo No. 59 Panjunan-Astana Anyar, Bandung",
-    "telepon": "022 - 5232291",
-    "jam_operasional": "Senin–Minggu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Kasih Jaya",
-    "alamat": "Jl. Taman Kopo Indah I Ruko No. 30, Bandung",
-    "telepon": "022 - 5401536",
-    "jam_operasional": "Senin–Sabtu 08.00–12.00; Senin–Sabtu 17.00–21.00",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Praktik Mandiri dr. Ernomo Agus Sudrajat",
-    "alamat": "Jl. Taman Kopo Indah II Blok. 3 F No. 10 Rahayu Margaasih, Bandung",
-    "telepon": "022 - 5402634",
-    "jam_operasional": "Senin–Sabtu 07.00–20.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Praktek dr. Agoes Soesanto",
-    "alamat": "Jl. Taman Kopo Indah 3 Ruko D 54, Bandung",
-    "telepon": "",
-    "jam_operasional": "Senin, Rabu, Jumat, Sabtu 07.30–12.00; Senin, Rabu, Kamis, Jumat 16.30–20.00",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Waringkas",
-    "alamat": "Jl.Terusan Kopo Katapang Km. 12.3 Bandung",
-    "telepon": "022 - 76267626",
-    "jam_operasional": "Senin–Sabtu 08.00–11.00; Senin–Sabtu 16.00–19.00",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Buana Mekar",
-    "alamat": "Jl. Laswi No. 56 Baleendah, Bandung",
-    "telepon": "",
-    "jam_operasional": "Senin–Jumat 08.00–12.00; 16.00–18.00; Sabtu 08.00–12.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Afiati Bojongsoang",
-    "alamat": "Komplek Buah Batu Centrum No. A20",
-    "telepon": "022 - 87502022",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Afiati Soreang",
-    "alamat": "Jl. Raya Soreang – Banjaran No. 298, Kab. Bandung",
-    "telepon": "022 - 58991883",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Selatan",
-    "nama": "Klinik Pratama Afiati Pangalengan",
-    "alamat": "Jl. Situ Cileunca Kp. Dandang RT. 01/RW. 01 Pulosari, Pangalengan",
-    "telepon": "022 - 5232291",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Asri Husada I",
-    "alamat": "Jl. Bekamin No.18/26 A Cikutra, Bandung",
-    "telepon": "022 - 7230425",
-    "jam_operasional": "Senin–Sabtu 08.00–17.00",
-    "fasilitas": "Laboratorium, Nebulizer"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Casa Medika",
-    "alamat": "Jl. PHH. Mustofa Komp. Surapati Core Blok M No. 27, Bandung",
-    "telepon": "",
-    "jam_operasional": "Senin–Sabtu 08.30–10.30; 16.00–18.30",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Hikmah II",
-    "alamat": "Jl. Ibrahim Adji No.91, Bandung",
-    "telepon": "022 - 7205274",
-    "jam_operasional": "Senin–Sabtu 10.00–12.00; 16.00–19.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Utama Medika Antapani",
-    "alamat": "Jl. Purwakarta No. 3, Bandung",
-    "telepon": "022 - 7200736",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Khalisa Medic",
-    "alamat": "Jl. Purwakarta No.128 Antapani Kidul, Bandung",
-    "telepon": "022 - 7200282",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Prima Husada",
-    "alamat": "Jl. Gatot Subroto No. 313 A Bandung",
-    "telepon": "022-87340100",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Hikmah I",
-    "alamat": "Jl. Pesantren No.8 A Sukamiskin, Bandung",
-    "telepon": "022 - 7215223",
-    "jam_operasional": "Senin–Sabtu 09.00–13.00; 16.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Ujung Berung",
-    "alamat": "Jl. Rumah Sakit No.5 Ujung berung, Bandung",
-    "telepon": "022 - 7801783",
-    "jam_operasional": "Senin–Sabtu 08.30–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Mitra Mulya",
-    "alamat": "Jl. A.H.Nasution No.20 Cibiru, Bandung",
-    "telepon": "022 - 7804489",
-    "jam_operasional": "Senin–Sabtu 09.00–13.00 & 16.00–20.00",
-    "fasilitas": "Laboratorium"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Ibnu Sina",
-    "alamat": "Jl. Cipamokolan Kebon Jeruk II No. 9 Rancasari, Bandung",
-    "telepon": "022 - 7567137",
-    "jam_operasional": "Senin–Sabtu 08.00–16.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Utama Padjadjaran",
-    "alamat": "Jl. Kolonel Ahmad Syam RT.02 RW.04 Desa Sayang Kec.Jatinangor Kab.Sumedang",
-    "telepon": "022 - 7781900",
-    "jam_operasional": "Senin–Minggu 08.00–20.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Timur",
-    "nama": "Klinik Pratama Afiati Cicalengka",
-    "alamat": "Jl. Raya Barat No. 157, Cicalengka",
-    "telepon": "082240088692",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Barat",
-    "nama": "Klinik Pratama Pandu",
-    "alamat": "Jl. Pandu No. 4, Bandung",
-    "telepon": "-",
-    "jam_operasional": "Senin, Rabu, Kamis, Sabtu 09.00–12.00; Senin–Sabtu 15.00–18.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Barat",
-    "nama": "Klinik Utama Elim",
-    "alamat": "Jl. Jend. Sudirman No.190 Bandung",
-    "telepon": "022 - 6029696 / 6029797",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Dokter umum, Dokter spesialis (sesuai jadwal), Tindakan, Psikolog, Laboratorium, Radiologi"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Barat",
-    "nama": "Klinik Pratama Monalisa 2",
-    "alamat": "Jl. Jenderal Sudirman No. 650 B, Bandung",
-    "telepon": "08157009090",
-    "jam_operasional": "Senin–Sabtu 07.00–21.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Barat",
-    "nama": "Klinik Pratama Karya Asih",
-    "alamat": "Jl. Waringin No. 40, Bandung",
-    "telepon": "022 - 6013223",
-    "jam_operasional": "Senin–Jumat 08.30–12.30 & 16.00–18.30; Sabtu 08.30–12.30",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Barat",
-    "nama": "Klinik Pratama Surya Medika",
-    "alamat": "Ruko Wangsa Niaga Wetan No. 17 Kota Baru Parahyangan",
-    "telepon": "022 - 86814599",
-    "jam_operasional": "Senin–Jumat 07.00–13.00; Sabtu 07.00–12.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bandung Barat",
-    "nama": "Klinik Pratama Afiati Padalarang",
-    "alamat": "Jl. Raya Caringin, No. 347 A Kel. Kertajaya, Kec. Padalarang, Kab. Bandung Barat",
-    "telepon": "022 - 86672406",
-    "jam_operasional": "Senin–Sabtu 08.00–20.00",
-    "fasilitas": "Tindakan ringan"
-  }
-  {
-    "jenis": "PPK I (Klinik)",
+    "jenis": "PPK II",
     "wilayah": "Cimahi",
-    "nama": "Klinik Pratama Dewi Sartika",
-    "alamat": "Jl. Baros No.109 Cimahi",
-    "telepon": "022 - 6648200",
-    "jam_operasional": "Senin–Sabtu 08.00–12.00; 16.00–20.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Cimahi",
-    "nama": "Klinik Pratama Luhur Medika Centre Cimahi",
-    "alamat": "Jl. Daeng M. Ardiwinata No. 8, Cibabat, Cimahi",
-    "telepon": "022 - 6650638",
-    "jam_operasional": "Senin–Sabtu 07.30–19.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Cimahi",
-    "nama": "Klinik Pratama Asryfa II",
-    "alamat": "Jl. Raya Cimindi No. 242, Cimahi",
-    "telepon": "022 - 87805726",
-    "jam_operasional": "Senin–Sabtu 09.00–12.00; 16.00–19.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Setya Medika",
-    "alamat": "Jl. Belakang Pasar Karawang, RT. 02/09, Karawang",
-    "telepon": "0267 - 402025",
-    "jam_operasional": "Senin–Minggu 08.00–21.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Pratama Gempol",
-    "alamat": "Jl. Ranggagede No. 29 Gempol, Karawang",
-    "telepon": "0267 - 8453903, 412117",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Pratama Gempol 2",
-    "alamat": "Jl. Banten No. 08, Karawang",
-    "telepon": "0267 - 8408887",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Pratama Bina Medika",
-    "alamat": "Jl. Raya Telukjambe No. 08, Karawang",
-    "telepon": "0267 - 641968",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Pratama Mitra Sehat",
-    "alamat": "Jl. Kosambi-Curug No. 28 Kosambi, Klari",
-    "telepon": "0267 - 433930",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Pratama Mitra Gempol",
-    "alamat": "Jl. Raya Proklamasi No. 15 KW 8, Karawang",
-    "telepon": "0267 - 8451114",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Pratama Dewata Tirta Medika",
-    "alamat": "Perum Telukjambe blok K Jl. Bharata Raya No. 10 Sukaluyu, Telukjambe Timur, Karawang",
-    "telepon": "082126200700",
-    "jam_operasional": "Senin–Minggu 07.30–21.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Karawang",
-    "nama": "Klinik Puri Medika",
-    "alamat": "Jl. Raya Proklamasi Dusun Warudoyong No. 525, Kel. Rengasdengklok Selatan, Kec. Rengasdengklok, Kab. Karawang",
-    "telepon": "",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Cikampek",
-    "nama": "Klinik Pratama Purwa Medika",
-    "alamat": "Jl. Raya Tamelang No. 28 Tamelang, Cikampek",
-    "telepon": "0267 - 433653",
-    "jam_operasional": "Senin–Minggu 08.00–22.00",
-    "fasilitas": "Laboratorium, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Jakarta",
-    "nama": "Klinik Pratama St. Carolus SAMADI Klender",
-    "alamat": "Jl. Bulak Raya No. 58, Klender, Duren Sawit, Jakarta Timur",
-    "telepon": "021 - 8615514",
-    "jam_operasional": "Senin–Jumat 07.00–19.00; Sabtu 07.00–15.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Jakarta",
-    "nama": "Klinik Pratama St. Carolus Paseban",
-    "alamat": "Jl. Salemba Raya No.33 Jakarta Pusat",
-    "telepon": "021 - 3904441",
-    "jam_operasional": "Senin–Jumat 07.00–19.00; Sabtu 07.00–15.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Jakarta",
-    "nama": "Klinik Pratama Nouvelle",
-    "alamat": "Jl. Raya Pasar Minggu KM 18 No. 17, Jakarta Selatan",
-    "telepon": "021 - 79182805/6",
-    "jam_operasional": "Senin–Jumat 09.00–17.00; Sabtu 09.00–16.00",
-    "fasilitas": "Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bali",
-    "nama": "DPP dr. I Nyoman Diane",
-    "alamat": "Jl. Gunung Semeru 8A Denpasar, Tegal Linggah, Pemecutan, Denpasar Barat",
-    "telepon": "0361 - 424426, 9006384",
-    "jam_operasional": "Senin–Minggu 08.00–20.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bali",
-    "nama": "Klinik Pratama Panti Swasti",
-    "alamat": "Jl. Raya Tangeb-Kapal No.25, Br. Tengah Tangeb, Abianbase, Mengwi, Badung",
-    "telepon": "0361 - 9006243",
-    "jam_operasional": "Senin–Minggu 07.30–20.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK I (Klinik)",
-    "wilayah": "Bali",
-    "nama": "DPP dr. Ni Ketut Indriani",
-    "alamat": "Jl. Raya Tuka No.24, Br. Tuka, Dalung, Kuta Utara, Badung",
-    "telepon": "0361 - 437052",
-    "jam_operasional": "Senin–Minggu 07.30–20.00",
-    "fasilitas": "Laboratorium sederhana, Tindakan ringan"
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Santo Borromeus",
-    "alamat": "Jl. Ir.H.Djuanda No.100 Bandung",
-    "telepon": "022 - 2552000, 2552126",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Santo Yusup",
-    "alamat": "Jl. Cikutra No.7 Bandung",
-    "telepon": "022 - 7202420, 7208049",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Cahya Kawaluyan",
-    "alamat": "Jl. Parahyangan Km.3 Kav.HOS, Kota Baru Parahyangan Padalarang Kab.Bandung",
-    "telepon": "022 - 6803700",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Immanuel",
-    "alamat": "Jl. Kopo No.161 Bandung",
-    "telepon": "022 - 5201656, 5201672",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Muhammadiyah",
-    "alamat": "Jl. KH. Ahmad Dahlan No.53 Bandung",
-    "telepon": "022 - 7301062",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Pindad",
-    "alamat": "Jl. Gatot Subroto No.517 Bandung",
-    "telepon": "022 - 7309807, 7321964",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. AMC",
-    "alamat": "Jl. Raya Cileunyi Rancaekek, Bandung",
-    "telepon": "022 - 7781630, 7781629",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Mitra Anugrah Lestari",
+    "nama": "RS Mitra Anugrah Lestari",
     "alamat": "Jl. Cibaligo No. 76, Cimindi, Cimahi",
-    "telepon": "022 - 6027204",
-    "jam_operasional": "",
-    "fasilitas": ""
+    "telepon": "022-6027204",
+    "fasilitas": ["Rujukan", "Laboratorium"]
   },
   {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RSU. Bina Sehat",
-    "alamat": "Jl. Raya Dayeuh Kolot No.325, Bandung",
-    "telepon": "022 - 5207964, 5207965",
-    "jam_operasional": "",
-    "fasilitas": ""
+    "jenis": "PPK II",
+    "wilayah": "Jakarta",
+    "nama": "RS Sint Carolus",
+    "alamat": "Jl. Salemba Raya No. 41, Jakarta Pusat",
+    "telepon": "021-3904441",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
   },
   {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Avisena",
-    "alamat": "Jl. Melong Asih No. 170 Cijerah, Bandung",
-    "telepon": "022 - 6000830",
-    "jam_operasional": "",
-    "fasilitas": ""
+    "jenis": "PPK II",
+    "wilayah": "Karawang",
+    "nama": "RS Bayukarta",
+    "alamat": "Jl. Kertabumi No. 44, Karawang",
+    "telepon": "0267-400373",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
   },
   {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Unggul Karsa Medika",
-    "alamat": "Taman Kopo Indah III Blok H-1, Mekar Rahayu, Margaasih, Bandung",
-    "telepon": "022 - 86011220",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Bandung",
-    "nama": "RS. Oetomo Hospital",
-    "alamat": "Jl. Raya Bojongsoang No.156, Kab. Bandung",
-    "telepon": "022 - 87538888",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Sint Carolus",
-    "alamat": "Jl. Salemba Raya No. 41 Jakarta Pusat",
-    "telepon": "021 - 3904441",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Bayukarta",
-    "alamat": "Jl. Kertabumi No. 44 Karawang",
-    "telepon": "0267 - 400373, 401817",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Mandaya",
-    "alamat": "Jl. Arteri Tol Karawang Barat Telukjambe Timur Karawang",
-    "telepon": "0267 - 8643000",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. St. Carolus Summarecon Serpong",
-    "alamat": "Jl. Gading Golf Boelevard Kav.08, Gading Serpong Tangerang",
-    "telepon": "021 - 54220811",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Karya Bhakti Pratiwi",
-    "alamat": "Jl. Raya Dramaga KM. 7, Dramaga, Bogor",
-    "telepon": "0251 - 8626868",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. PMI Bogor",
-    "alamat": "Jl. Pajajaran No. 80 Bogor",
-    "telepon": "0251 - 8324080",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Islam Assyifa",
-    "alamat": "Jl. Jend.Sudirman No.3, Sukabumi",
-    "telepon": "0266 - 241463, 241461",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Jasa Kartini",
-    "alamat": "Jl. Otto Iskandardinata No. 15 Tasikmalaya",
-    "telepon": "0265 - 331808, 331641",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Sekar Kamulyan",
-    "alamat": "Jl. Rumah Sakit No. 7 Cigugur Kuningan",
-    "telepon": "0232 - 873206",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Pelabuhan Cirebon",
-    "alamat": "Jl. Sisingamangaraja No. 45 Cirebon",
-    "telepon": "0231 - 208948",
-    "jam_operasional": "",
-    "fasilitas": ""
-  },
-  {
-    "jenis": "PPK II (Rumah Sakit)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Sumber Kasih",
-    "alamat": "Jl. Siliwangi No. 135 Cirebon",
-    "telepon": "0231 - 203815"
-  },
-  {
-    "jenis": "PPK II (Rumah Sakit)",
-    "wilayah": "Luar Bandung",
-    "nama": "RSU St. Elisabeth Ganjuran",
-    "alamat": "Jl. Ganjuran, Sumbermulyo, Bambanglipuro, Bantul",
-    "telepon": "0274 - 367502"
-  },
-  {
-    "jenis": "PPK II (Rumah Sakit)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. St. Elisabeth Semarang",
-    "alamat": "Jl. Kawi No. 1 Semarang",
-    "telepon": "024 - 8310035, 8310076"
-  },
-  {
-    "jenis": "PPK II (RS)",
-    "wilayah": "Luar Bandung",
-    "nama": "RS. Panti Rapih",
-    "alamat": "Jl. Cik Di Tiro No.12 Yogyakarta",
-    "telepon": "0274 - 514774",
-    "jam_operasional": "",
-    "fasilitas": ""
+    "jenis": "PPK II",
+    "wilayah": "Bali",
+    "nama": "RS Panti Swasti",
+    "alamat": "Jl. Raya Tangeb-Kapal No. 25, Badung, Bali",
+    "telepon": "0361-9006243",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
   }
 ]
-
-
-  
-
