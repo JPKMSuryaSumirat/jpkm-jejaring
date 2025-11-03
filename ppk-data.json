@@ -1,0 +1,90 @@
+[
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Utara",
+    "nama": "Klinik Pratama Surya Sumirat",
+    "alamat": "Jl. Surya Kencana No. 2, Bandung",
+    "telepon": "022-2552200",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "07.00 - 13.00, 07.00 - 12.00",
+    "fasilitas": ["Laboratorium", "Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Utara",
+    "nama": "Klinik Pratama Sari Asih",
+    "alamat": "Jl. Sekeloa No. 29, Gg. Loa II, Bandung",
+    "telepon": "022-2503868",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "07.00 - 13.00, 07.00 - 12.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Utara",
+    "nama": "Klinik Pratama Unpar",
+    "alamat": "Jl. Menjangan No. 14, Ciumbuleuit, Bandung",
+    "telepon": "022-82602386",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "07.00 - 13.00, 07.00 - 12.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Utara",
+    "nama": "Klinik Pratama Lumina Medical Center",
+    "alamat": "Jl. Grand Hotel No. 31, Lembang",
+    "telepon": "",
+    "hari": "Setiap Hari",
+    "jam": "24 Jam",
+    "fasilitas": ["IGD", "Laboratorium", "Rawat inap", "Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK II",
+    "wilayah": "Bandung",
+    "nama": "RS Santo Borromeus",
+    "alamat": "Jl. Ir. H. Djuanda No. 100, Bandung",
+    "telepon": "022-2552000",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
+  },
+  {
+    "jenis": "PPK II",
+    "wilayah": "Bandung",
+    "nama": "RS Immanuel",
+    "alamat": "Jl. Kopo No. 161, Bandung",
+    "telepon": "022-5201656",
+    "fasilitas": ["Rujukan", "Rawat Inap", "Laboratorium"]
+  },
+  {
+    "jenis": "PPK II",
+    "wilayah": "Cimahi",
+    "nama": "RS Mitra Anugrah Lestari",
+    "alamat": "Jl. Cibaligo No. 76, Cimindi, Cimahi",
+    "telepon": "022-6027204",
+    "fasilitas": ["Rujukan", "Laboratorium"]
+  },
+  {
+    "jenis": "PPK II",
+    "wilayah": "Jakarta",
+    "nama": "RS Sint Carolus",
+    "alamat": "Jl. Salemba Raya No. 41, Jakarta Pusat",
+    "telepon": "021-3904441",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
+  },
+  {
+    "jenis": "PPK II",
+    "wilayah": "Karawang",
+    "nama": "RS Bayukarta",
+    "alamat": "Jl. Kertabumi No. 44, Karawang",
+    "telepon": "0267-400373",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
+  },
+  {
+    "jenis": "PPK II",
+    "wilayah": "Bali",
+    "nama": "RS Panti Swasti",
+    "alamat": "Jl. Raya Tangeb-Kapal No. 25, Badung, Bali",
+    "telepon": "0361-9006243",
+    "fasilitas": ["Rujukan", "Laboratorium", "Rawat Inap"]
+  }
+]

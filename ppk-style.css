@@ -1,0 +1,82 @@
+#ppk-app {
+  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
+  margin: 1rem auto;
+  max-width: 1200px;
+}
+.ppk-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.ppk-controls input,
+.ppk-controls select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 180px;
+}
+.ppk-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.ppk-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
+}
+.ppk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.ppk-card h3 {
+  margin: 0 0 0.25rem;
+  color: #005b96;
+  font-size: 1.05rem;
+}
+.ppk-card p {
+  margin: 0.25rem 0;
+  font-size: 14px;
+}
+.ppk-card .fasilitas {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.fac-item {
+  display: flex;
+  align-items: center;
+  background: #f3f9ff;
+  color: #004a7c;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem;
+}
+.fac-item img {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+}
+.ppk-card button {
+  margin-top: 0.6rem;
+  padding: 0.4rem 0.7rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.ppk-card button.call {
+  background: #007acc;
+  color: #fff;
+}
+.ppk-card button.copy {
+  background: #28a745;
+  color: #fff;
+  margin-left: 6px;
+}
