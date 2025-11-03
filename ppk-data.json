@@ -68,5 +68,155 @@
     "hari": "Senin - Jumat",
     "jam": "08.00 - 12.00, 14.00 - 17.00",
     "fasilitas": ["Tindakan ringan"]
-  }  
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Anugerah",
+    "alamat": "Jl. Lengkong Besar No.117 Bandung",
+    "telepon": "022-4206005",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 14.00, 16.00 - 20.00",
+    "fasilitas": []
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Waluya Jati",
+    "alamat": "Jl. Asmi No. 7 Bandung",
+    "telepon": "022-5230788",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 20.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Utama Monalisa",
+    "alamat": "Jl. Moch. Ramdan No.32 Bandung",
+    "telepon": "081573600002",
+    "hari": "Senin - Sabtu (Dokter spesialis)",
+    "jam": "07.00 - 21.00",
+    "fasilitas": ["Kerjasama khusus Dokter spesialis sesuai jadwal", "Laboratorium (Tidak ada dokter umum)"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Silih Asih",
+    "alamat": "Jl. Suryalaya No.8 Buah Batu, Bandung",
+    "telepon": "022-7300005",
+    "hari": "Senin - Sabtu",
+    "jam": "09.00 - 12.00, 16.00 - 19.00",
+    "fasilitas": ["Laboratorium sederhana", "Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Gandarusa",
+    "alamat": "Jl. Dian Permai No. 6 A, Bandung",
+    "telepon": "022-6016801",
+    "hari": "Senin - Jumat",
+    "jam": "08.00 - 17.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Monalisa",
+    "alamat": "Jl. Kopo No. 206, Bandung",
+    "telepon": "08157180000",
+    "hari": "Senin - Sabtu",
+    "jam": "07.00 - 21.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Afiati Kopo",
+    "alamat": "Jl. Kopo No. 59 Panjunan-Astana Anyar, Bandung",
+    "telepon": "022-5232291",
+    "hari": "Senin - Minggu",
+    "jam": "08.00 - 20.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Kasih Jaya",
+    "alamat": "Jl. Taman Kopo Indah I Ruko No. 30, Bandung",
+    "telepon": "022-5401536",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 12.00, 17.00 - 21.00",
+    "fasilitas": []
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Praktik Mandiri dr. Ernomo Agus Sudrajat",
+    "alamat": "Jl. Taman Kopo Indah II Blok. 3 F No. 10 Rahayu Margaasih, Bandung",
+    "telepon": "022-5402634",
+    "hari": "Senin - Sabtu",
+    "jam": "07.00 - 20.00",
+    "fasilitas": ["Laboratorium sederhana", "Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Praktek dr. Agoes Soesanto",
+    "alamat": "Jl. Taman Kopo Indah 3 Ruko D 54, Bandung",
+    "telepon": "",
+    "hari": "Senin, Rabu, Jumat, Sabtu",
+    "jam": "07.30 - 12.00; 16.30 - 20.00",
+    "fasilitas": []
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Waringkas",
+    "alamat": "Jl. Terusan Kopo Katapang Km. 12.3 Bandung",
+    "telepon": "022-76267626",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 11.00, 16.00 - 19.00",
+    "fasilitas": []
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Buana Mekar",
+    "alamat": "Jl. Laswi No. 56 Baleendah, Bandung",
+    "telepon": "",
+    "hari": "Senin - Jumat, Sabtu",
+    "jam": "08.00 - 12.00, 16.00 - 18.00; 08.00 - 12.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Afiati Bojongsoang",
+    "alamat": "Komplek Buah Batu Centrum No. A20",
+    "telepon": "022-87502022",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 20.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Afiati Soreang",
+    "alamat": "Jl. Raya Soreang – Banjaran No. 298, Kab. Bandung",
+    "telepon": "022-58991883",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 20.00",
+    "fasilitas": ["Tindakan ringan"]
+  },
+  {
+    "jenis": "PPK I",
+    "wilayah": "Bandung Selatan",
+    "nama": "Klinik Pratama Afiati Pangalengan",
+    "alamat": "Jl. Situ Cileunca Kp. Dandang RT. 01/RW. 01 Pulosari, Pangalengan",
+    "telepon": "022-5232291",
+    "hari": "Senin - Sabtu",
+    "jam": "08.00 - 20.00",
+    "fasilitas": ["Tindakan ringan"]
+  }
 ]
