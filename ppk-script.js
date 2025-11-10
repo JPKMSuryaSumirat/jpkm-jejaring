@@ -5,16 +5,28 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filterJenis = document.getElementById("filterJenis");
 
   try {
-  const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER) .xlsx");
+  const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER).xlsx");
   const buf = await res.arrayBuffer();
   const workbook = XLSX.read(buf, { type: "array" });
-  const sheet = workbook.Sheets["PPK jejaring_Jam praktek"] 
-    || workbook.Sheets[workbook.SheetNames[0]];
 
-  data = XLSX.utils.sheet_to_json(sheet);
+  const sheet = workbook.Sheets[workbook.SheetNames[0]];
+  let data = XLSX.utils.sheet_to_json(sheet);
+
+  // --- NORMALISASI ---
+  data = data.map(d => ({
+    nama: d["NAMA PPK I"] || "",
+    alamat: d["ALAMAT"] || "",
+    telepon: d["TELEPON"] || "",
+    hari: d["HARI"] || "",
+    jam: d["JAM"] || "",
+    fasilitas: d["FASILITAS LAINNYA"] || ""
+  }));
+
+  console.log(data[0]); // cek apakah sudah terbaca
 } catch (err) {
   console.error("Gagal memuat Excel:", err);
 }
+
 
 
   const iconMap = {
@@ -70,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   render(data);
 });
+
 
 
 
