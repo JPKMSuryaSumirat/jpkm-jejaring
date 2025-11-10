@@ -8,8 +8,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER) .xlsx");
   const buf = await res.arrayBuffer();
   const workbook = XLSX.read(buf, { type: "array" });
+  const sheet = workbook.Sheets["PPK jejaring_Jam praktek"] 
+    || workbook.Sheets[workbook.SheetNames[0]];
 
-  const sheet = workbook.Sheets[workbook.PPK jejaring_Jam praktek[0]];
   data = XLSX.utils.sheet_to_json(sheet);
 } catch (err) {
   console.error("Gagal memuat Excel:", err);
@@ -69,5 +70,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   render(data);
 });
+
 
 
