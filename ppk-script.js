@@ -24,6 +24,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
+// Buang baris kosong & judul sampai ketemu baris header sebenarnya
+const realHeaderIndex = raw.findIndex(
+  r => r.some(c => String(c).toLowerCase().includes("nama"))
+);
+
+if (realHeaderIndex === -1) {
+  console.error("Header tabel tidak ditemukan!");
+  return;
+}
+
+// Mulai dari header asli
+const headers = raw[realHeaderIndex].map(h => String(h).toLowerCase().trim());
+
+// Sisa baris adalah data
+const rows = raw.slice(realHeaderIndex + 1);
+
+
 // baris header nyata (biasanya baris pertama)
 const headers = raw[0].map(h => String(h).toLowerCase().trim());
 
@@ -150,5 +167,6 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
