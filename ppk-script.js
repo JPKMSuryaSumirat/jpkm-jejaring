@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!sheet) throw new Error("Sheet undefined.");
 
     const raw = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+    console.log("HEADER:", Object.keys(raw[0]));
 
     // Normalisasi kolom (sesuaikan nama header persis seperti di file Anda)
     data = raw.map(d => ({
@@ -135,3 +136,4 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
