@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filterJenis = document.getElementById("filterJenis");
 
   try {
-  const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER) .xlsx");
+  const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER).xlsx");
   const buf = await res.arrayBuffer();
   const workbook = XLSX.read(buf, { type: "array" });
 
@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   render(data);
 });
+
 
 
 
