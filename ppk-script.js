@@ -24,28 +24,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
-// Buang baris kosong & judul sampai ketemu baris header sebenarnya
+// Cari baris yang berisi header (yang memuat kata "nama")
 const realHeaderIndex = raw.findIndex(
   r => r.some(c => String(c).toLowerCase().includes("nama"))
 );
 
 if (realHeaderIndex === -1) {
   console.error("Header tabel tidak ditemukan!");
+  data = [];
+  render(data);
   return;
 }
 
-// Mulai dari header asli
+// Ambil header asli
 const headers = raw[realHeaderIndex].map(h => String(h).toLowerCase().trim());
 
-// Sisa baris adalah data
+// Ambil semua baris data setelah header
 const rows = raw.slice(realHeaderIndex + 1);
-
-
-// baris header nyata (biasanya baris pertama)
-const headers = raw[0].map(h => String(h).toLowerCase().trim());
-
-// baris data dimulai dari baris kedua
-const rows = raw.slice(1);
 
 function ambil(row, keyword) {
   const idx = headers.findIndex(h => h.includes(keyword));
@@ -64,18 +59,8 @@ data = rows.map(row => ({
 
 console.log("HEADER TERDETEKSI:", headers);
 console.log("Contoh data[0]:", data[0]);
+
 render(data);
-
-
-    console.log("Contoh data[0]:", data[0]);
-    render(data);
-
-  } catch (err) {
-    console.error("Gagal memuat Excel:", err);
-    // pastikan data tetap array kosong agar fungsi lain tidak error
-    data = [];
-    render(data);
-  }
 
   function render(items) {
     listEl.innerHTML = "";
@@ -167,6 +152,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
