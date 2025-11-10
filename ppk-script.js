@@ -4,13 +4,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filterWilayah = document.getElementById("filterWilayah");
   const filterJenis = document.getElementById("filterJenis");
 
-  let data = [];
   try {
-    const res = await fetch('./ppk-data.json');
-    data = await res.json();
-  } catch (err) {
-    console.error("Gagal memuat data:", err);
-  }
+  const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER) .xlsx");
+  const buf = await res.arrayBuffer();
+  const workbook = XLSX.read(buf, { type: "array" });
+
+  const sheet = workbook.Sheets[workbook.SheetNames[0]];
+  data = XLSX.utils.sheet_to_json(sheet);
+} catch (err) {
+  console.error("Gagal memuat Excel:", err);
+}
+
 
   const iconMap = {
     "Laboratorium": "lab.svg",
@@ -65,3 +69,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   render(data);
 });
+
