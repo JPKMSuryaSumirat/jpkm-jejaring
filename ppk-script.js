@@ -1,4 +1,4 @@
-let data = []; // <--- global, mencegah "data is not defined"
+let data = []; // global
 
 document.addEventListener("DOMContentLoaded", async () => {
   const listEl = document.getElementById("ppk-list");
@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const filterWilayah = document.getElementById("filterWilayah");
   const filterJenis = document.getElementById("filterJenis");
 
-  // Nama file Excel yang sudah Anda letakkan di root proyek (pastikan persis)
   const EXCEL_FILE = "Daftar PPK Jejaring JPKM (MASTER).xlsx";
 
   try {
@@ -16,58 +15,67 @@ document.addEventListener("DOMContentLoaded", async () => {
     const buf = await res.arrayBuffer();
     const workbook = XLSX.read(buf, { type: "array" });
 
-    // Ambil sheet pertama (atau ganti nama jika perlu)
     const sheetName = workbook.SheetNames[0];
-    if (!sheetName) throw new Error("Tidak ditemukan sheet pada workbook.");
+    if (!sheetName) throw new Error("Tidak ditemukan sheet dalam file.");
     const sheet = workbook.Sheets[sheetName];
-    if (!sheet) throw new Error("Sheet undefined.");
 
+    // baca semua data raw
     const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
-// Cari baris yang berisi header (yang memuat kata "nama")
-const realHeaderIndex = raw.findIndex(
-  r => r.some(c => String(c).toLowerCase().includes("nama"))
-);
+    // cari baris yang berisi header tabel sesungguhnya
+    const realHeaderIndex = raw.findIndex(
+      r => r.some(c => String(c).toLowerCase().includes("nama"))
+    );
 
-if (realHeaderIndex === -1) {
-  console.error("Header tabel tidak ditemukan!");
-  data = [];
-  render(data);
-  return;
-}
+    if (realHeaderIndex === -1) {
+      console.error("Header tabel tidak ditemukan dalam Excel!");
+      data = [];
+      render(data);
+      return;
+    }
 
-// Ambil header asli
-const headers = raw[realHeaderIndex].map(h => String(h).toLowerCase().trim());
+    // ambil header dan normalisasi huruf kecil
+    const headers = raw[realHeaderIndex].map(h => String(h).toLowerCase().trim());
 
-// Ambil semua baris data setelah header
-const rows = raw.slice(realHeaderIndex + 1);
+    // ambil seluruh data setelah header
+    const rows = raw.slice(realHeaderIndex + 1);
 
-function ambil(row, keyword) {
-  const idx = headers.findIndex(h => h.includes(keyword));
-  return idx !== -1 ? (row[idx] || "") : "";
-}
+    // fungsi helper ambil kolom berdasarkan keyword
+    function ambil(row, keyword) {
+      const idx = headers.findIndex(h => h.includes(keyword));
+      return idx !== -1 ? (row[idx] || "") : "";
+    }
 
-data = rows.map(row => ({
-  nama: ambil(row, "nama"),
-  wilayah: ambil(row, "wilayah"),
-  alamat: ambil(row, "alamat"),
-  telepon: ambil(row, "tel"),
-  hari: ambil(row, "hari"),
-  jam: ambil(row, "jam"),
-  fasilitas_lain: ambil(row, "fasilitas")
-}));
+    // olah data jadi JSON bersih
+    data = rows.map(row => ({
+      nama: ambil(row, "nama"),
+      wilayah: ambil(row, "wilayah"),
+      alamat: ambil(row, "alamat"),
+      telepon: ambil(row, "tel"),
+      hari: ambil(row, "hari"),
+      jam: ambil(row, "jam"),
+      fasilitas_lain: ambil(row, "fasilitas")
+    }));
 
-console.log("HEADER TERDETEKSI:", headers);
-console.log("Contoh data[0]:", data[0]);
+    console.log("HEADER TERDETEKSI:", headers);
+    console.log("Contoh data[0]:", data[0]);
 
-render(data);
+    render(data);
 
+  } catch (err) {
+    console.error("Gagal memuat Excel:", err);
+    data = [];
+    render(data);
+  }
+
+  // render ke HTML
   function render(items) {
     listEl.innerHTML = "";
     if (!items || !items.length) {
       listEl.innerHTML = "<p>Tidak ada hasil ditemukan.</p>";
       return;
     }
+
     items.forEach(item => {
       const card = document.createElement("div");
       card.className = "ppk-card";
@@ -91,6 +99,7 @@ render(data);
     });
   }
 
+  // filter pencarian dan dropdown
   function filter() {
     const q = (searchEl.value || "").toLowerCase();
     const w = filterWilayah.value;
@@ -98,7 +107,6 @@ render(data);
 
     const filtered = data.filter(d => {
       const fasilitas = (d.fasilitas_lain || "").toLowerCase();
-      const jenis = (d.jenis || "").toLowerCase(); // jika ada kolom jenis di Excel
 
       const passSearch =
         !q ||
@@ -109,27 +117,10 @@ render(data);
       const passWilayah = !w || (d.wilayah || "") === w;
 
       let passJenis = true;
-      if (!j) {
-        passJenis = true;
-      } else if (j === "PPK I") {
-        passJenis = (jenis === "ppk i") || (d.jenis === "PPK I");
-      } else if (j === "PPK II") {
-        passJenis = (jenis === "ppk ii") || (d.jenis === "PPK II");
-      } else if (j === "PPK I Siswa") {
-        passJenis =
-          (jenis === "ppk i") ||
-          (d.jenis === "PPK I") ||
-          fasilitas.includes("siswa") ||
-          fasilitas.includes("mahasiswa");
+      if (j === "PPK I Siswa/Mahasiswa") {
+        passJenis = fasilitas.includes("siswa") || fasilitas.includes("mahasiswa");
       } else if (j === "PPK I Gigi") {
-        passJenis =
-          (jenis === "ppk i") ||
-          (d.jenis === "PPK I") ||
-          fasilitas.includes("gigi") ||
-          fasilitas.includes("dental");
-      } else {
-        // fallback: coba cocokkan dengan fasilitas
-        passJenis = (fasilitas && fasilitas.includes(j.toLowerCase()));
+        passJenis = fasilitas.includes("gigi") || fasilitas.includes("dental");
       }
 
       return passSearch && passWilayah && passJenis;
@@ -141,9 +132,9 @@ render(data);
   searchEl.addEventListener("input", filter);
   filterWilayah.addEventListener("change", filter);
   filterJenis.addEventListener("change", filter);
-}); // end DOMContentLoaded
+});
 
-// small helper to avoid XSS if HTML contains unexpected chars (basic)
+// helper anti XSS
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -152,7 +143,3 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
-
-
-
-
