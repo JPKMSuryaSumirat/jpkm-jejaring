@@ -22,19 +22,33 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sheet = workbook.Sheets[sheetName];
     if (!sheet) throw new Error("Sheet undefined.");
 
-    const raw = XLSX.utils.sheet_to_json(sheet, { defval: "" });
-    console.log("HEADER:", Object.keys(raw[0]));
+    const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
-    // Normalisasi kolom (sesuaikan nama header persis seperti di file Anda)
-    data = raw.map(d => ({
-      nama: d["NAMA PPK I"] || d["NAMA PPK"] || d["NAMA"] || "",
-      wilayah: d["WILAYAH"] || d["KAB/KOTA"] || "",
-      alamat: d["ALAMAT"] || d["ALAMAT LENGKAP"] || "",
-      telepon: d["TELEPON"] || d["NO. TELEPON"] || d["TELP"] || "",
-      hari: d["HARI"] || "",
-      jam: d["JAM"] || d["JAM PRAKTEK"] || "",
-      fasilitas_lain: d["FASILITAS LAINNYA"] || d["FASILITAS"] || ""
-    }));
+// baris header nyata (biasanya baris pertama)
+const headers = raw[0].map(h => String(h).toLowerCase().trim());
+
+// baris data dimulai dari baris kedua
+const rows = raw.slice(1);
+
+function ambil(row, keyword) {
+  const idx = headers.findIndex(h => h.includes(keyword));
+  return idx !== -1 ? (row[idx] || "") : "";
+}
+
+data = rows.map(row => ({
+  nama: ambil(row, "nama"),
+  wilayah: ambil(row, "wilayah"),
+  alamat: ambil(row, "alamat"),
+  telepon: ambil(row, "tel"),
+  hari: ambil(row, "hari"),
+  jam: ambil(row, "jam"),
+  fasilitas_lain: ambil(row, "fasilitas")
+}));
+
+console.log("HEADER TERDETEKSI:", headers);
+console.log("Contoh data[0]:", data[0]);
+render(data);
+
 
     console.log("Contoh data[0]:", data[0]);
     render(data);
@@ -136,4 +150,5 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
