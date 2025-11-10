@@ -1,90 +1,137 @@
+let data = []; // <--- global, mencegah "data is not defined"
+
 document.addEventListener("DOMContentLoaded", async () => {
   const listEl = document.getElementById("ppk-list");
   const searchEl = document.getElementById("search");
   const filterWilayah = document.getElementById("filterWilayah");
   const filterJenis = document.getElementById("filterJenis");
 
+  // Nama file Excel yang sudah Anda letakkan di root proyek (pastikan persis)
+  const EXCEL_FILE = "Daftar PPK Jejaring JPKM (MASTER).xlsx";
+
   try {
-  const res = await fetch("./Daftar PPK Jejaring JPKM (MASTER).xlsx");
-  const buf = await res.arrayBuffer();
-  const workbook = XLSX.read(buf, { type: "array" });
+    const res = await fetch(EXCEL_FILE);
+    if (!res.ok) throw new Error(`HTTP ${res.status} - ${res.statusText}`);
 
-  const sheet = workbook.Sheets[workbook.SheetNames[0]];
-  let data = XLSX.utils.sheet_to_json(sheet);
+    const buf = await res.arrayBuffer();
+    const workbook = XLSX.read(buf, { type: "array" });
 
-  // --- NORMALISASI ---
-  data = data.map(d => ({
-    nama: d["NAMA PPK I"] || "",
-    alamat: d["ALAMAT"] || "",
-    telepon: d["TELEPON"] || "",
-    hari: d["HARI"] || "",
-    jam: d["JAM"] || "",
-    fasilitas: d["FASILITAS LAINNYA"] || ""
-  }));
+    // Ambil sheet pertama (atau ganti nama jika perlu)
+    const sheetName = workbook.SheetNames[0];
+    if (!sheetName) throw new Error("Tidak ditemukan sheet pada workbook.");
+    const sheet = workbook.Sheets[sheetName];
+    if (!sheet) throw new Error("Sheet undefined.");
 
-  console.log(data[0]); // cek apakah sudah terbaca
-} catch (err) {
-  console.error("Gagal memuat Excel:", err);
-}
+    const raw = XLSX.utils.sheet_to_json(sheet, { defval: "" });
 
+    // Normalisasi kolom (sesuaikan nama header persis seperti di file Anda)
+    data = raw.map(d => ({
+      nama: d["NAMA PPK I"] || d["NAMA PPK"] || d["NAMA"] || "",
+      wilayah: d["WILAYAH"] || d["KAB/KOTA"] || "",
+      alamat: d["ALAMAT"] || d["ALAMAT LENGKAP"] || "",
+      telepon: d["TELEPON"] || d["NO. TELEPON"] || d["TELP"] || "",
+      hari: d["HARI"] || "",
+      jam: d["JAM"] || d["JAM PRAKTEK"] || "",
+      fasilitas_lain: d["FASILITAS LAINNYA"] || d["FASILITAS"] || ""
+    }));
 
+    console.log("Contoh data[0]:", data[0]);
+    render(data);
 
-  const iconMap = {
-    "Laboratorium": "lab.svg",
-    "Rawat inap": "rawatinap.svg",
-    "IGD": "igd.svg",
-    "Tindakan ringan": "tindakan.svg"
-  };
+  } catch (err) {
+    console.error("Gagal memuat Excel:", err);
+    // pastikan data tetap array kosong agar fungsi lain tidak error
+    data = [];
+    render(data);
+  }
 
   function render(items) {
     listEl.innerHTML = "";
-    if (!items.length) {
+    if (!items || !items.length) {
       listEl.innerHTML = "<p>Tidak ada hasil ditemukan.</p>";
       return;
     }
     items.forEach(item => {
       const card = document.createElement("div");
       card.className = "ppk-card";
-      const fasilitasHTML = (item.fasilitas || [])
-        .map(f => `<span class='fac-item'><img src='/media/ppk/icons/${iconMap[f] || "lab.svg"}'>${f}</span>`)
+
+      const fasilitasHTML = (item.fasilitas_lain || "")
+        .split(",")
+        .map(f => f.trim())
+        .filter(Boolean)
+        .map(f => `<span class='fac-item'>${escapeHtml(f)}</span>`)
         .join("");
+
       card.innerHTML = `
-        <h3>${item.nama}</h3>
-        <p><strong>Wilayah:</strong> ${item.wilayah}</p>
-        <p><strong>Alamat:</strong> ${item.alamat}</p>
-        <p><strong>Telepon:</strong> ${item.telepon || "-"}</p>
-        ${item.jam ? `<p><strong>Jam:</strong> ${item.jam}</p>` : ""}
+        <h3>${escapeHtml(item.nama || "—")}</h3>
+        <p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>
+        <p><strong>Alamat:</strong> ${escapeHtml(item.alamat || "—")}</p>
+        <p><strong>Telepon:</strong> ${escapeHtml(item.telepon || "-")}</p>
+        ${item.jam ? `<p><strong>Jam:</strong> ${escapeHtml(item.jam)}</p>` : ""}
         <div class="fasilitas">${fasilitasHTML}</div>
-        <div>
-          ${item.telepon ? `<button class='call' onclick="window.open('tel:${item.telepon}')">Telepon</button>` : ""}
-          ${item.telepon ? `<button class='copy' onclick="navigator.clipboard.writeText('${item.telepon}');alert('Nomor disalin!')">Salin</button>` : ""}
-        </div>
       `;
       listEl.appendChild(card);
     });
   }
 
   function filter() {
-    const q = searchEl.value.toLowerCase();
+    const q = (searchEl.value || "").toLowerCase();
     const w = filterWilayah.value;
     const j = filterJenis.value;
-    const filtered = data.filter(d =>
-      (!q || d.nama.toLowerCase().includes(q) || d.alamat.toLowerCase().includes(q) || (d.telepon || "").includes(q)) &&
-      (!w || d.wilayah === w) &&
-      (!j || d.jenis === j)
-    );
+
+    const filtered = data.filter(d => {
+      const fasilitas = (d.fasilitas_lain || "").toLowerCase();
+      const jenis = (d.jenis || "").toLowerCase(); // jika ada kolom jenis di Excel
+
+      const passSearch =
+        !q ||
+        (d.nama || "").toLowerCase().includes(q) ||
+        (d.alamat || "").toLowerCase().includes(q) ||
+        (d.telepon || "").toLowerCase().includes(q);
+
+      const passWilayah = !w || (d.wilayah || "") === w;
+
+      let passJenis = true;
+      if (!j) {
+        passJenis = true;
+      } else if (j === "PPK I") {
+        passJenis = (jenis === "ppk i") || (d.jenis === "PPK I");
+      } else if (j === "PPK II") {
+        passJenis = (jenis === "ppk ii") || (d.jenis === "PPK II");
+      } else if (j === "PPK I Siswa") {
+        passJenis =
+          (jenis === "ppk i") ||
+          (d.jenis === "PPK I") ||
+          fasilitas.includes("siswa") ||
+          fasilitas.includes("mahasiswa");
+      } else if (j === "PPK I Gigi") {
+        passJenis =
+          (jenis === "ppk i") ||
+          (d.jenis === "PPK I") ||
+          fasilitas.includes("gigi") ||
+          fasilitas.includes("dental");
+      } else {
+        // fallback: coba cocokkan dengan fasilitas
+        passJenis = (fasilitas && fasilitas.includes(j.toLowerCase()));
+      }
+
+      return passSearch && passWilayah && passJenis;
+    });
+
     render(filtered);
   }
 
   searchEl.addEventListener("input", filter);
   filterWilayah.addEventListener("change", filter);
   filterJenis.addEventListener("change", filter);
+}); // end DOMContentLoaded
 
-  render(data);
-});
-
-
-
-
-
-
+// small helper to avoid XSS if HTML contains unexpected chars (basic)
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
