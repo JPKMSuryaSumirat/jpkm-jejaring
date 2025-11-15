@@ -52,8 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       wilayah: ambil(row, "wilayah"),
       alamat: ambil(row, "alamat"),
       telepon: ambil(row, "tel"),
-      hari: ambil(row, "hari"),
-      jam: ambil(row, "jam"),
+      jadwal: ambil(row, "jadwal")
       fasilitas_lain: ambil(row, "fasilitas")
     }));
 
@@ -143,3 +142,4 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
