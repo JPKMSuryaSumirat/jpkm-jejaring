@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>
         <p><strong>Alamat:</strong> ${escapeHtml(item.alamat || "—")}</p>
         <p><strong>Telepon:</strong> ${escapeHtml(item.telepon || "-")}</p>
-        ${item.jam ? `<p><strong>Jam:</strong> ${escapeHtml(item.jam)}</p>` : ""}
+        ${item.jadwal ? `<p><strong>Jadwal:</strong> ${escapeHtml(item.jadwal)}</p>` : ""}
         <div class="fasilitas">${fasilitasHTML}</div>
       `;
       listEl.appendChild(card);
@@ -142,5 +142,6 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
