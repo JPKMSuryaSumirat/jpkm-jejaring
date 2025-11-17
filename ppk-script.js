@@ -117,12 +117,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const passWilayah = !w || (d.wilayah || "") === w;
 
-      let passJenis = true;
-      if (j === "PPK I Siswa/Mahasiswa") {
-        passJenis = fasilitas.includes("siswa") || fasilitas.includes("mahasiswa");
-      } else if (j === "PPK I Gigi") {
-        passJenis = fasilitas.includes("gigi") || fasilitas.includes("dental");
-      }
+        let passJenis = true;
+        
+        // Filter berdasarkan kolom "jenis"
+        if (j === "PPK I") {
+          passJenis = (d.jenis || "").toLowerCase().includes("ppk i");
+        }
+        else if (j === "PPK II") {
+          passJenis = (d.jenis || "").toLowerCase().includes("ppk ii");
+        }
+        // Filter kategori khusus
+        else if (j === "PPK I Siswa") {
+          passJenis = (d.fasilitas_lain || "").toLowerCase().includes("siswa") ||
+                       (d.fasilitas_lain || "").toLowerCase().includes("mahasiswa");
+        }
+        else if (j === "PPK I Gigi") {
+          passJenis = (d.fasilitas_lain || "").toLowerCase().includes("gigi") ||
+                       (d.fasilitas_lain || "").toLowerCase().includes("dental");
+        }
+
 
       return passSearch && passWilayah && passJenis;
     });
@@ -144,6 +157,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
