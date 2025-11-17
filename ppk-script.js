@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       alamat: ambil(row, "alamat"),
       telepon: ambil(row, "tel"),
       jadwal: ambil(row, "jadwal"),
-      fasilitas_lain: ambil(row, "fasilitas")
+      fasilitas_lain: ambil(row, "fasilitas"),
+      jenis: ambil(row, "jenis")
     }));
 
     console.log("HEADER TERDETEKSI:", headers);
@@ -142,6 +143,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
