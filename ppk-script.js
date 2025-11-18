@@ -1,12 +1,9 @@
+// ppk-script.js (versi perbaikan minimal — hanya perbaikan error, logika tetap sama)
 let data = []; // global
 
 document.addEventListener("DOMContentLoaded", async () => {
-  document.addEventListener("DOMContentLoaded", async () => {
-  const loading = document.getElementById("loading");  // ← PINDAHKAN KE SINI
-  const listEl = document.getElementById("ppk-list");
-  const searchEl = document.getElementById("search");
-  const filterWilayah = document.getElementById("filterWilayah");
-  const filterJenis = document.getElementById("filterJenis");
+  // ----- PENTING: pastikan loading sudah ada sebelum dipakai -----
+  const loading = document.getElementById("loading");
 
   const listEl = document.getElementById("ppk-list");
   const searchEl = document.getElementById("search");
@@ -66,14 +63,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     console.log("HEADER TERDETEKSI:", headers);
     console.log("Contoh data[0]:", data[0]);
-    loading.classList.add("loading-hidden");
 
+    // Sembunyikan loading bila sebelumnya masih terlihat
+    if (loading) loading.classList.add("loading-hidden");
 
     render(data);
 
   } catch (err) {
     console.error("Gagal memuat Excel:", err);
     data = [];
+    // Pastikan loading disembunyikan juga saat error
+    if (typeof loading !== "undefined" && loading) loading.classList.add("loading-hidden");
     render(data);
   }
 
@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       card.innerHTML = `
         <h3>${escapeHtml(item.nama || "—")}</h3>
         ${item.jenis && item.jenis.toLowerCase().includes("ppk ii")
-        ? "" 
-  : `<p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>`
-}
+          ? ""
+          : `<p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>`
+        }
         <p><strong>Alamat:</strong> ${escapeHtml(item.alamat || "—")}</p>
         <p><strong>Telepon:</strong> ${escapeHtml(item.telepon || "-")}</p>
         <p><strong>Jenis:</strong> ${escapeHtml(item.jenis || "—")}</p>
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // filter pencarian dan dropdown
+  // filter pencarian dan dropdown (fungsi utama, tetap seperti semula)
   function filter() {
     const q = (searchEl.value || "").toLowerCase();
     const w = filterWilayah.value;
@@ -129,25 +129,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const passWilayah = !w || (d.wilayah || "") === w;
 
-        let passJenis = true;
-        
-        // Filter berdasarkan kolom "jenis"
-        if (j === "PPK I") {
-          passJenis = (d.jenis || "").toLowerCase().includes("ppk i");
-        }
-        else if (j === "PPK II") {
-          passJenis = (d.jenis || "").toLowerCase().includes("ppk ii");
-        }
-        // Filter kategori khusus
-        else if (j === "PPK I Siswa") {
-          passJenis = (d.fasilitas_lain || "").toLowerCase().includes("siswa") ||
-                       (d.fasilitas_lain || "").toLowerCase().includes("mahasiswa");
-        }
-        else if (j === "PPK I Gigi") {
-          passJenis = (d.fasilitas_lain || "").toLowerCase().includes("gigi") ||
-                       (d.fasilitas_lain || "").toLowerCase().includes("dental");
-        }
+      let passJenis = true;
 
+      // Filter berdasarkan kolom "jenis"
+      if (j === "PPK I") {
+        passJenis = (d.jenis || "").toLowerCase().includes("ppk i");
+      } else if (j === "PPK II") {
+        passJenis = (d.jenis || "").toLowerCase().includes("ppk ii");
+      }
+      // Filter kategori khusus
+      else if (j === "PPK I Siswa") {
+        passJenis = (d.fasilitas_lain || "").toLowerCase().includes("siswa") ||
+                     (d.fasilitas_lain || "").toLowerCase().includes("mahasiswa");
+      } else if (j === "PPK I Gigi") {
+        passJenis = (d.fasilitas_lain || "").toLowerCase().includes("gigi") ||
+                     (d.fasilitas_lain || "").toLowerCase().includes("dental");
+      }
 
       return passSearch && passWilayah && passJenis;
     });
@@ -155,12 +152,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     render(filtered);
   }
 
+  // Event listener tombol Cari — gunakan variabel yang sudah ada
   document.getElementById("btnCari").addEventListener("click", function () {
+    // tampilkan loading (jika ada)
+    if (loading) loading.classList.remove("loading-hidden");
 
-  loading.classList.remove("loading-hidden");  // tampilkan loading
-
-  setTimeout(() => {
-
+    setTimeout(() => {
       const teks = searchEl.value.toLowerCase();
       const w = filterWilayah.value;
       const j = filterJenis.value;
@@ -174,17 +171,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         return (cocokNama || cocokAlamat || cocokTelp) && cocokWilayah && cocokJenis;
       });
 
-      render(filtered); // yang benar BUKAN tampilkanData()
+      render(filtered);
 
-      loading.classList.add("loading-hidden");  // sembunyikan loading
+      // sembunyikan loading (jika ada)
+      if (loading) loading.classList.add("loading-hidden");
 
-  }, 600); // 0.6 detik biar smooth
-});
+    }, 600); // 0.6 detik biar smooth
+  });
 
+}); // end DOMContentLoaded
 
-  // ============================================
-
-// helper anti XSS
+// helper anti XSS (tetap sama)
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -193,19 +190,3 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
