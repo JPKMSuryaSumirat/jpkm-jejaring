@@ -175,7 +175,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
   // ============================================
-});
 
 // helper anti XSS
 function escapeHtml(str) {
@@ -186,6 +185,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
