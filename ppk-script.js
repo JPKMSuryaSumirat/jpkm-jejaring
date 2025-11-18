@@ -169,7 +169,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   loading.classList.remove("loading-hidden");
 
   setTimeout(() => {
-      tampilkanData(filtered);
       loading.classList.add("loading-hidden");
   }, 500);
 
@@ -188,6 +187,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
