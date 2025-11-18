@@ -1,8 +1,8 @@
-// ppk-script.js (versi perbaikan minimal — hanya perbaikan error, logika tetap sama)
 let data = []; // global
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // ----- PENTING: pastikan loading sudah ada sebelum dipakai -----
+
+  // PENTING — PINDAHKAN KE ATAS
   const loading = document.getElementById("loading");
 
   const listEl = document.getElementById("ppk-list");
@@ -23,10 +23,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!sheetName) throw new Error("Tidak ditemukan sheet dalam file.");
     const sheet = workbook.Sheets[sheetName];
 
-    // baca semua data raw
     const raw = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
-    // cari baris yang berisi header tabel sesungguhnya
     const realHeaderIndex = raw.findIndex(
       r => r.some(c => String(c).toLowerCase().includes("nama"))
     );
@@ -34,23 +32,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (realHeaderIndex === -1) {
       console.error("Header tabel tidak ditemukan dalam Excel!");
       data = [];
+      if (loading) loading.classList.add("loading-hidden");
       render(data);
       return;
     }
 
-    // ambil header dan normalisasi huruf kecil
     const headers = raw[realHeaderIndex].map(h => String(h).toLowerCase().trim());
-
-    // ambil seluruh data setelah header
     const rows = raw.slice(realHeaderIndex + 1);
 
-    // fungsi helper ambil kolom berdasarkan keyword
     function ambil(row, keyword) {
       const idx = headers.findIndex(h => h.includes(keyword));
       return idx !== -1 ? (row[idx] || "") : "";
     }
 
-    // olah data jadi JSON bersih
     data = rows.map(row => ({
       nama: ambil(row, "nama"),
       wilayah: ambil(row, "wilayah"),
@@ -61,23 +55,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       jenis: ambil(row, "jenis")
     }));
 
-    console.log("HEADER TERDETEKSI:", headers);
-    console.log("Contoh data[0]:", data[0]);
-
-    // Sembunyikan loading bila sebelumnya masih terlihat
     if (loading) loading.classList.add("loading-hidden");
 
     render(data);
 
   } catch (err) {
     console.error("Gagal memuat Excel:", err);
+    if (loading) loading.classList.add("loading-hidden");
     data = [];
-    // Pastikan loading disembunyikan juga saat error
-    if (typeof loading !== "undefined" && loading) loading.classList.add("loading-hidden");
     render(data);
   }
 
-  // render ke HTML
   function render(items) {
     listEl.innerHTML = "";
     if (!items || !items.length) {
@@ -90,18 +78,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       card.className = "ppk-card";
 
       const fasilitasHTML = (item.fasilitas_lain || "")
-        .split(",")
-        .map(f => f.trim())
-        .filter(Boolean)
-        .map(f => `<span class='fac-item'>${escapeHtml(f)}</span>`)
-        .join("");
+        .split(",").map(f => f.trim()).filter(Boolean)
+        .map(f => `<span class='fac-item'>${escapeHtml(f)}</span>`).join("");
 
       card.innerHTML = `
         <h3>${escapeHtml(item.nama || "—")}</h3>
-        ${item.jenis && item.jenis.toLowerCase().includes("ppk ii")
-          ? ""
-          : `<p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>`
-        }
+        ${item.jenis && item.jenis.toLowerCase().includes("ppk ii") ? "" :
+          `<p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>`}
         <p><strong>Alamat:</strong> ${escapeHtml(item.alamat || "—")}</p>
         <p><strong>Telepon:</strong> ${escapeHtml(item.telepon || "-")}</p>
         <p><strong>Jenis:</strong> ${escapeHtml(item.jenis || "—")}</p>
@@ -112,49 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // filter pencarian dan dropdown (fungsi utama, tetap seperti semula)
-  function filter() {
-    const q = (searchEl.value || "").toLowerCase();
-    const w = filterWilayah.value;
-    const j = filterJenis.value;
-
-    const filtered = data.filter(d => {
-      const fasilitas = (d.fasilitas_lain || "").toLowerCase();
-
-      const passSearch =
-        !q ||
-        (d.nama || "").toLowerCase().includes(q) ||
-        (d.alamat || "").toLowerCase().includes(q) ||
-        (d.telepon || "").toLowerCase().includes(q);
-
-      const passWilayah = !w || (d.wilayah || "") === w;
-
-      let passJenis = true;
-
-      // Filter berdasarkan kolom "jenis"
-      if (j === "PPK I") {
-        passJenis = (d.jenis || "").toLowerCase().includes("ppk i");
-      } else if (j === "PPK II") {
-        passJenis = (d.jenis || "").toLowerCase().includes("ppk ii");
-      }
-      // Filter kategori khusus
-      else if (j === "PPK I Siswa") {
-        passJenis = (d.fasilitas_lain || "").toLowerCase().includes("siswa") ||
-                     (d.fasilitas_lain || "").toLowerCase().includes("mahasiswa");
-      } else if (j === "PPK I Gigi") {
-        passJenis = (d.fasilitas_lain || "").toLowerCase().includes("gigi") ||
-                     (d.fasilitas_lain || "").toLowerCase().includes("dental");
-      }
-
-      return passSearch && passWilayah && passJenis;
-    });
-
-    render(filtered);
-  }
-
-  // Event listener tombol Cari — gunakan variabel yang sudah ada
   document.getElementById("btnCari").addEventListener("click", function () {
-    // tampilkan loading (jika ada)
     if (loading) loading.classList.remove("loading-hidden");
 
     setTimeout(() => {
@@ -168,20 +109,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         const cocokTelp = item.telepon.toLowerCase().includes(teks);
         const cocokWilayah = !w || item.wilayah === w;
         const cocokJenis = !j || item.jenis === j;
-        return (cocokNama || cocokAlamat || cocokTelp) && cocokWilayah && cocokJenis;
+
+        return (cocokNama || cocokAlamat || cocokTelp) &&
+               cocokWilayah &&
+               cocokJenis;
       });
 
       render(filtered);
 
-      // sembunyikan loading (jika ada)
       if (loading) loading.classList.add("loading-hidden");
 
-    }, 600); // 0.6 detik biar smooth
+    }, 600);
   });
 
-}); // end DOMContentLoaded
+});
 
-// helper anti XSS (tetap sama)
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
