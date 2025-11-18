@@ -107,15 +107,33 @@ document.addEventListener("DOMContentLoaded", async () => {
         const j = filterJenis.value;
 
         const filtered = data.filter(item => {
-            const cocokNama = item.nama.toLowerCase().includes(teks);
-            const cocokAlamat = item.alamat.toLowerCase().includes(teks);
-            const cocokTelp = item.telepon.toLowerCase().includes(teks);
-            const cocokWilayah = !w || item.wilayah === w;
-            const cocokJenis = !j || item.jenis === j;
+    const cocokNama = item.nama.toLowerCase().includes(teks);
+    const cocokAlamat = item.alamat.toLowerCase().includes(teks);
+    const cocokTelp = item.telepon.toLowerCase().includes(teks);
+    const cocokWilayah = !w || item.wilayah === w;
 
-            return (cocokNama || cocokAlamat || cocokTelp) &&
-                   cocokWilayah &&
-                   cocokJenis;
+    // ---------- FILTER JENIS (PPK I / PPK II / KHUSUS) ----------
+    let cocokJenis = true;
+
+    if (!j) {
+        cocokJenis = true;
+    } 
+    else if (j === "PPK I" || j === "PPK II") {
+        // BIARKAN LOGIKA LAMA — TIDAK DIUBAH
+        cocokJenis = item.jenis === j;
+    }
+    else if (j === "PPK I Siswa") {
+        const f = item.fasilitas_lain.toLowerCase();
+        cocokJenis = f.includes("siswa") || f.includes("mahasiswa");
+    }
+    else if (j === "PPK I Gigi") {
+        const f = item.fasilitas_lain.toLowerCase();
+        cocokJenis = f.includes("gigi") || f.includes("dental");
+    }
+
+    return (cocokNama || cocokAlamat || cocokTelp) &&
+           cocokWilayah &&
+           cocokJenis;
         });
 
         render(filtered);
@@ -136,4 +154,5 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
