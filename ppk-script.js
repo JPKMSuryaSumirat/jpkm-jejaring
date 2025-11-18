@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     console.log("HEADER TERDETEKSI:", headers);
     console.log("Contoh data[0]:", data[0]);
+    loading.classList.add("loading-hidden");
+
 
     render(data);
 
@@ -185,6 +187,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
