@@ -96,28 +96,32 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   document.getElementById("btnCari").addEventListener("click", function () {
-    if (loading) loading.classList.remove("loading-hidden");
+    
+    // Tampilkan loading hanya saat tombol Cari ditekan
+    loading.classList.remove("loading-hidden");
 
     setTimeout(() => {
-      const teks = searchEl.value.toLowerCase();
-      const w = filterWilayah.value;
-      const j = filterJenis.value;
 
-      const filtered = data.filter(item => {
-        const cocokNama = item.nama.toLowerCase().includes(teks);
-        const cocokAlamat = item.alamat.toLowerCase().includes(teks);
-        const cocokTelp = item.telepon.toLowerCase().includes(teks);
-        const cocokWilayah = !w || item.wilayah === w;
-        const cocokJenis = !j || item.jenis === j;
+        const teks = searchEl.value.toLowerCase();
+        const w = filterWilayah.value;
+        const j = filterJenis.value;
 
-        return (cocokNama || cocokAlamat || cocokTelp) &&
-               cocokWilayah &&
-               cocokJenis;
-      });
+        const filtered = data.filter(item => {
+            const cocokNama = item.nama.toLowerCase().includes(teks);
+            const cocokAlamat = item.alamat.toLowerCase().includes(teks);
+            const cocokTelp = item.telepon.toLowerCase().includes(teks);
+            const cocokWilayah = !w || item.wilayah === w;
+            const cocokJenis = !j || item.jenis === j;
 
-      render(filtered);
+            return (cocokNama || cocokAlamat || cocokTelp) &&
+                   cocokWilayah &&
+                   cocokJenis;
+        });
 
-      if (loading) loading.classList.add("loading-hidden");
+        render(filtered);
+
+        // Sembunyikan loading lagi
+        loading.classList.add("loading-hidden");
 
     }, 600);
   });
@@ -132,3 +136,4 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
