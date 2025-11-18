@@ -146,9 +146,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     render(filtered);
   }
 
-  searchEl.addEventListener("input", filter);
-  filterWilayah.addEventListener("change", filter);
-  filterJenis.addEventListener("change", filter);
+      const btnCari = document.getElementById("btnCari");
+      btnCari.addEventListener("click", filter);
+
 });
 
 // helper anti XSS
@@ -160,6 +160,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
