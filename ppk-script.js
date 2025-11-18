@@ -1,6 +1,13 @@
 let data = []; // global
 
 document.addEventListener("DOMContentLoaded", async () => {
+  document.addEventListener("DOMContentLoaded", async () => {
+  const loading = document.getElementById("loading");  // ← PINDAHKAN KE SINI
+  const listEl = document.getElementById("ppk-list");
+  const searchEl = document.getElementById("search");
+  const filterWilayah = document.getElementById("filterWilayah");
+  const filterJenis = document.getElementById("filterJenis");
+
   const listEl = document.getElementById("ppk-list");
   const searchEl = document.getElementById("search");
   const filterWilayah = document.getElementById("filterWilayah");
@@ -147,7 +154,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     render(filtered);
   }
-  const loading = document.getElementById("loading");
 
   document.getElementById("btnCari").addEventListener("click", function () {
 
@@ -187,6 +193,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
