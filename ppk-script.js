@@ -145,8 +145,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     render(filtered);
   }
+  const loading = document.getElementById("loading");
 
-      document.getElementById("btnCari").addEventListener("click", function () {
+  document.getElementById("btnCari").addEventListener("click", function () {
 
   loading.classList.remove("loading-hidden");  // tampilkan loading
 
@@ -188,6 +189,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
