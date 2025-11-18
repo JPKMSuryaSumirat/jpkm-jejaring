@@ -146,8 +146,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     render(filtered);
   }
 
-      const btnCari = document.getElementById("btnCari");
-      btnCari.addEventListener("click", filter);
+      document.getElementById("btnCari").addEventListener("click", function () {
+
+  const teks = search.value.toLowerCase();
+  const w = filterWilayah.value;
+  const j = filterJenis.value;
+
+  // Filter data
+  const filtered = data.filter(item => {
+    const cocokNama = item.nama.toLowerCase().includes(teks);
+    const cocokAlamat = item.alamat.toLowerCase().includes(teks);
+    const cocokTelp = item.telepon.toLowerCase().includes(teks);
+    const cocokWilayah = !w || item.wilayah === w;
+    const cocokJenis = !j || item.jenis === j;
+    return (cocokNama || cocokAlamat || cocokTelp) && cocokWilayah && cocokJenis;
+  });
+
+  // ============================================
+  //  ⬇⬇⬇ TAMBAHKAN KODE LOADING DI SINI ⬇⬇⬇
+  // ============================================
+
+  loading.classList.remove("loading-hidden");
+
+  setTimeout(() => {
+      tampilkanData(filtered);
+      loading.classList.add("loading-hidden");
+  }, 500);
+
+  // ============================================
+});
+
 
 });
 
@@ -160,6 +188,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
