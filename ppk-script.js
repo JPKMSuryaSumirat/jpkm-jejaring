@@ -83,8 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.innerHTML = `
         <h3>${escapeHtml(item.nama || "—")}</h3>
-        ${item.jenis && item.jenis.toLowerCase().includes("ppk ii") ? "" :
-          `<p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>`}
+        <p><strong>Wilayah:</strong> ${escapeHtml(item.wilayah || "—")}</p>
         <p><strong>Alamat:</strong> ${escapeHtml(item.alamat || "—")}</p>
         <p><strong>Telepon:</strong> ${escapeHtml(item.telepon || "-")}</p>
         <p><strong>Jenis:</strong> ${escapeHtml(item.jenis || "—")}</p>
@@ -154,5 +153,6 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
