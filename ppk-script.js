@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       telepon: ambil(row, "tel"),
       jadwal: ambil(row, "jadwal"),
       fasilitas_lain: ambil(row, "fasilitas"),
-      jenis: ambil(row, "jenis")
+      jenis: ambil(row, "jenis"),
+      dokter_gigi: ambil(row, "dokter gigi")
     }));
 
     if (loading) loading.classList.add("loading-hidden");
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <p><strong>Telepon:</strong> ${escapeHtml(item.telepon || "-")}</p>
         <p><strong>Jenis:</strong> ${escapeHtml(item.jenis || "—")}</p>
         ${item.jadwal ? `<p><strong>Jadwal:</strong> ${escapeHtml(item.jadwal)}</p>` : ""}
+        ${item.dokter_gigi ? `<p><strong>Dokter Gigi:</strong> ${escapeHtml(item.dokter_gigi)}</p>` : ""}
         <div class="fasilitas">${fasilitasHTML}</div>
       `;
       listEl.appendChild(card);
@@ -153,6 +155,7 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
 
 
 
